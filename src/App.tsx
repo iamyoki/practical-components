@@ -1,12 +1,12 @@
+import { Global } from '@emotion/react'
 import React from 'react'
-import { Router } from '@reach/router'
-import HomePage from './pages/HomePage'
+import Routes from './routes/Routes'
 
 function App() {
   return (
-    <Router>
-      <HomePage path="/" />
-    </Router>
+    <>
+      <Routes />
+    </>
   )
 }
 
