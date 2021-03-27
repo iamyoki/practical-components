@@ -69,7 +69,8 @@ const Pagination = ({
 
       {[...Array(totalPage)].map((item, i) => (
         <PaginationBtn
-          key={item}
+          // eslint-disable-next-line react/no-array-index-key
+          key={i}
           active={i === activeIndex}
           size={size}
           onClick={() => handleClickBtn(i)}
