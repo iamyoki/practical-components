@@ -9,29 +9,32 @@ const HomePage = (props: RouteComponentProps) => {
   return (
     <Layout>
       <div>
-        {pages.map((page) => (
-          <div
-            key={page.path}
-            css={css`
-              font-size: 20px;
-              cursor: pointer;
-              margin: 12px;
+        {pages.map(
+          (page) =>
+            page.path !== '/' && (
+              <div
+                key={page.path}
+                css={css`
+                  font-size: 20px;
+                  cursor: pointer;
+                  margin: 12px;
 
-              &:hover {
-                color: slateblue;
-              }
-            `}
-          >
-            <Link
-              to={page.path}
-              css={css`
-                color: currentColor;
-              `}
-            >
-              {page.meta?.title}
-            </Link>
-          </div>
-        ))}
+                  &:hover {
+                    color: slateblue;
+                  }
+                `}
+              >
+                <Link
+                  to={page.path}
+                  css={css`
+                    color: currentColor;
+                  `}
+                >
+                  {page.meta?.title}
+                </Link>
+              </div>
+            )
+        )}
       </div>
     </Layout>
   )
