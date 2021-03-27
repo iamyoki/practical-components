@@ -8,6 +8,7 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         height: inherit;
       `}
     >

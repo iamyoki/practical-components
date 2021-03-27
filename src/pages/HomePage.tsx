@@ -10,18 +10,27 @@ const HomePage = (props: RouteComponentProps) => {
     <Layout>
       <div>
         {pages.map((page) => (
-          <Link
-            to={page.path}
+          <div
             key={page.path}
             css={css`
-              color: currentColor;
               font-size: 20px;
               cursor: pointer;
               margin: 12px;
+
+              &:hover {
+                color: slateblue;
+              }
             `}
           >
-            {page.meta?.title}
-          </Link>
+            <Link
+              to={page.path}
+              css={css`
+                color: currentColor;
+              `}
+            >
+              {page.meta?.title}
+            </Link>
+          </div>
         ))}
       </div>
     </Layout>
