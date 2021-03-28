@@ -8,6 +8,8 @@ import useEffectSkipMount from '../hooks/useEffectSkipMount'
 interface PaginationProps {
   /** 初始页面 默认第一页 1 */
   initialPage?: number
+  /** 当前页 */
+  curPage?: number
   /** 全部页数 不小于1 */
   totalPage: number
   /** 显示的页数 默认10 */
@@ -18,6 +20,7 @@ interface PaginationProps {
 
 const Pagination = ({
   initialPage = 1,
+  curPage = initialPage,
   totalPage,
   displayPageRange = 5,
   size = 'normal',
