@@ -5,7 +5,7 @@ import Pagination from '../components/Pagination'
 
 const PaginationPage = () => {
   const [curPage, setCurPage] = useQueryParam('page', NumberParam)
-  const initialPage = curPage || 2
+  const initialPage = 2
 
   useEffect(() => {
     if (!curPage) setCurPage(initialPage, 'replace')
