@@ -16,6 +16,7 @@ const PaginationPage = () => {
       <Pagination
         totalPage={10}
         initialPage={initialPage}
+        curPage={curPage}
         onChange={(index) => setCurPage(index)}
       />
     </Layout>

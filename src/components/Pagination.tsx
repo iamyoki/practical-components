@@ -9,7 +9,7 @@ interface PaginationProps {
   /** 初始页面 默认第一页 1 */
   initialPage?: number
   /** 当前页 */
-  curPage?: number
+  curPage?: number | null
   /** 全部页数 不小于1 */
   totalPage: number
   /** 显示的页数 默认10 */
@@ -20,7 +20,7 @@ interface PaginationProps {
 
 const Pagination = ({
   initialPage = 1,
-  curPage = initialPage,
+  curPage = undefined,
   totalPage,
   displayPageRange = 5,
   size = 'normal',
@@ -44,6 +44,13 @@ const Pagination = ({
   // 点击下一页
   function handleClickNext() {
     if (activeIndex < totalPage - 1) setActive((cur) => cur + 1)
+  }
+
+  // 当前active
+  function isActive(index: number) {
+    return {
+      active: index === (curPage || activeIndex) - 1,
+    }
   }
 
   // 监听切页
@@ -74,9 +81,9 @@ const Pagination = ({
         <PaginationBtn
           // eslint-disable-next-line react/no-array-index-key
           key={i}
-          active={i === activeIndex}
           size={size}
           onClick={() => handleClickBtn(i)}
+          {...isActive(i)}
         >
           {i + 1}
         </PaginationBtn>
