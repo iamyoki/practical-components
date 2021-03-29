@@ -60,7 +60,7 @@ const Pagination = ({
 
   return (
     <div
-      className="Pagination"
+      className='Pagination'
       css={css`
         display: grid;
         grid-auto-flow: column;
@@ -69,7 +69,7 @@ const Pagination = ({
       `}
     >
       <PaginationBtn
-        className="prev"
+        className='prev'
         size={size}
         disabled={activeIndex <= 0}
         onClick={handleClickPrev}
@@ -90,7 +90,7 @@ const Pagination = ({
       ))}
 
       <PaginationBtn
-        className="next"
+        className='next'
         size={size}
         disabled={activeIndex >= totalPage - 1}
         onClick={handleClickNext}

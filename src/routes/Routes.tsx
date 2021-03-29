@@ -4,7 +4,7 @@ import { pages } from './config'
 
 const Routes = (props: RouteComponentProps) => {
   return (
-    <Router id="Router">
+    <Router id='Router'>
       <QueryParamProvider {...{ path: '/' }} reachHistory={globalHistory}>
         {pages.map((item) => (
           <item.component key={item.path} path={item.path} {...item.meta} />

@@ -1,5 +1,7 @@
 import HomePage from '../pages/HomePage'
+import NotificationPage from '../pages/NotificationPage'
 import PaginationPage from '../pages/PaginationPage'
+import SwitchPage from '../pages/SwitchPage'
 import { RoutesPage } from '../types/routes'
 
 // All pages set in here
@@ -16,6 +18,20 @@ export const pages: RoutesPage[] = [
     component: PaginationPage,
     meta: {
       title: 'Pagination Page',
+    },
+  },
+  {
+    path: '/switch',
+    component: SwitchPage,
+    meta: {
+      title: 'Switch Page',
+    },
+  },
+  {
+    path: '/notification',
+    component: NotificationPage,
+    meta: {
+      title: 'Notification Page',
     },
   },
 ]
