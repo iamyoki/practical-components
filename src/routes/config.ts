@@ -1,6 +1,7 @@
 import HomePage from '../pages/HomePage'
 import NotificationPage from '../pages/NotificationPage'
 import PaginationPage from '../pages/PaginationPage'
+import SpringPage from '../pages/SpringPage'
 import SwitchPage from '../pages/SwitchPage'
 import { RoutesPage } from '../types/routes'
 
@@ -32,6 +33,13 @@ export const pages: RoutesPage[] = [
     component: NotificationPage,
     meta: {
       title: 'Notification Page',
+    },
+  },
+  {
+    path: '/spring',
+    component: SpringPage,
+    meta: {
+      title: 'Spring Page',
     },
   },
 ]

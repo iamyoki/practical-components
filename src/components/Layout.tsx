@@ -1,6 +1,14 @@
-import { css } from '@emotion/react'
+import { css, Interpolation, Theme } from '@emotion/react'
+import { CSSProperties } from 'react'
 
-const Layout = ({ children }: { children?: React.ReactNode }) => {
+const Layout = ({
+  children,
+  ...props
+}: {
+  children?: React.ReactNode
+  style?: CSSProperties
+  css?: Interpolation<Theme>
+}) => {
   return (
     <div
       className='Layout'
@@ -11,6 +19,7 @@ const Layout = ({ children }: { children?: React.ReactNode }) => {
         flex-direction: column;
         height: inherit;
       `}
+      {...props}
     >
       {children}
     </div>
