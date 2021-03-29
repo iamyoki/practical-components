@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { desaturate, lighten } from 'polished'
+import { desaturate, lighten, rgba } from 'polished'
 import { MdClose } from 'react-icons/md'
 
 const Notification = () => {
@@ -7,15 +7,12 @@ const Notification = () => {
     <div
       className='Notification'
       css={css`
-        background: linear-gradient(
-          to top,
-          lavender,
-          ${lighten(0.04, 'lavender')}
-        );
+        background: white;
+        box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.12);
         padding: 12px;
         min-width: 200px;
         border-radius: 8px;
-        border: 1px solid lavender;
+        border: 1px solid ${rgba('lavender', 0.4)};
         color: ${desaturate(0.4, 'darkslateblue')};
         margin: 4px;
       `}
