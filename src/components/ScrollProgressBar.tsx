@@ -5,10 +5,9 @@ import { useScroll } from 'react-use-gesture'
 
 const ScrollProgressBar = () => {
   const [progress, setProgress] = useState(0)
-  const height = document.documentElement.scrollHeight
 
   useScroll(
-    ({ direction, distance, values, xy: [, y] }) => {
+    ({ xy: [, y] }) => {
       setProgress((y / (document.body.scrollHeight - window.innerHeight)) * 100)
     },
     { domTarget: window }
