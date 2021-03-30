@@ -18,6 +18,7 @@ const Layout = ({
         align-items: center;
         flex-direction: column;
         height: inherit;
+        box-sizing: border-box;
       `}
       {...props}
     >

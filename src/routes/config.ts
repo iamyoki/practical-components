@@ -1,6 +1,7 @@
 import HomePage from '../pages/HomePage'
 import NotificationPage from '../pages/NotificationPage'
 import PaginationPage from '../pages/PaginationPage'
+import ScrollPage from '../pages/ScrollPage'
 import SpringPage from '../pages/SpringPage'
 import SwitchPage from '../pages/SwitchPage'
 import { RoutesPage } from '../types/routes'
@@ -40,6 +41,13 @@ export const pages: RoutesPage[] = [
     component: SpringPage,
     meta: {
       title: 'Spring Page',
+    },
+  },
+  {
+    path: '/scroll',
+    component: ScrollPage,
+    meta: {
+      title: 'Scroll Animation Page',
     },
   },
 ]
