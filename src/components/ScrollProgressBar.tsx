@@ -1,14 +1,22 @@
 import { rgba, tint } from 'polished'
 import { useState } from 'react'
-import { animated } from 'react-spring'
+import { animated, useSpring, config } from 'react-spring'
 import { useScroll } from 'react-use-gesture'
 
 const ScrollProgressBar = () => {
   const [progress, setProgress] = useState(0)
+  const [{ width }, set] = useSpring(() => ({
+    width: 0,
+    config: config.default,
+  }))
 
   useScroll(
     ({ xy: [, y] }) => {
-      setProgress((y / (document.body.scrollHeight - window.innerHeight)) * 100)
+      // setProgress((y / (document.body.scrollHeight - window.innerHeight)) * 100)
+      console.log(width)
+      set({
+        width: (y / (document.body.scrollHeight - window.innerHeight)) * 100,
+      })
     },
     { domTarget: window }
   )
@@ -37,7 +45,7 @@ const ScrollProgressBar = () => {
       <animated.div
         className='progress-bg'
         style={{
-          width: `${progress}%`,
+          width: width.to((value) => `${value}%`),
           height: 40,
           background: 'slateblue',
           borderRadius: 4,
@@ -47,7 +55,7 @@ const ScrollProgressBar = () => {
           placeItems: 'center',
         }}
       >
-        {progress.toFixed(2)}%
+        {width.to((w) => `${w.toFixed(2)}%`)}
       </animated.div>
     </div>
   )
