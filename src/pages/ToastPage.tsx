@@ -22,6 +22,14 @@ const ToastPage = (props: RouteComponentProps) => {
       <button type='button' onClick={handleClick}>
         show toast
       </button>
+      <br />
+      <br />
+      <button
+        onClick={() => show(input.split('').reverse().join(''))}
+        type='button'
+      >
+        toast reverse
+      </button>
 
       <Toast />
     </Layout>
