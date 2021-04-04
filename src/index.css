@@ -33,3 +33,30 @@ body,
   opacity: 0;
   transition: opacity 200ms;
 }
+
+@keyframes toast {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.4);
+    animation-timing-function: ease-in-out;
+  }
+  8% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.04);
+    animation-timing-function: ease-out;
+  }
+  13% {
+    opacity: 1;
+    transform: none;
+    animation-timing-function: ease-in;
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(10px);
+    animation-timing-function: ease-in;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(50px) scale(0.6);
+  }
+}
