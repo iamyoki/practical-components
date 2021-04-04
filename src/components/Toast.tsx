@@ -1,9 +1,20 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import ReactDOM from 'react-dom'
 import { useToast } from '../contexts/toast-context'
+
+const root = document.getElementById('root') as HTMLDivElement
 
 const Toast = () => {
   const { message, clear, timestamp } = useToast()
   const domRef = useRef<HTMLDivElement>(null)
+  const portalDOMRef = useRef(document.createElement('div'))
+
+  useEffect(() => {
+    root.appendChild(portalDOMRef.current)
+
+    // eslint-disable-next-line no-void
+    return () => void root.removeChild(portalDOMRef.current)
+  }, [])
 
   useEffect(() => {
     if (domRef.current) {
@@ -17,7 +28,7 @@ const Toast = () => {
 
   if (!message) return null
 
-  return (
+  return ReactDOM.createPortal(
     <div
       className='Toast'
       onAnimationEnd={(ev) => clear()}
@@ -45,7 +56,8 @@ const Toast = () => {
       >
         {message}
       </div>
-    </div>
+    </div>,
+    portalDOMRef.current
   )
 }
 
