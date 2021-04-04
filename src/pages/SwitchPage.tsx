@@ -14,7 +14,6 @@ const SwitchPage = () => {
       <input
         type='number'
         style={{ marginBottom: 12 }}
-        defaultValue={10}
         value={width}
         onChange={handleChange}
       />
