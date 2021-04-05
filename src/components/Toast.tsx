@@ -5,7 +5,7 @@ import { useToast } from '../contexts/toast-context'
 const root = document.getElementById('root') as HTMLDivElement
 
 const Toast = () => {
-  const { message, clear, timestamp } = useToast()
+  const { message, clear, timestamp, style } = useToast()
   const domRef = useRef<HTMLDivElement>(null)
   const portalDOMRef = useRef(document.createElement('div'))
 
@@ -52,6 +52,7 @@ const Toast = () => {
           padding: '10px 16px',
           borderRadius: 999,
           lineHeight: 1.5,
+          ...(style && style),
         }}
       >
         {message}

@@ -1,8 +1,10 @@
-import React, { useContext, useReducer } from 'react'
+import React, { CSSProperties, useContext, useReducer } from 'react'
 
-type Action = { type: 'show'; message: string } | { type: 'clear' }
+type Action =
+  | { type: 'show'; message: string; style?: CSSProperties }
+  | { type: 'clear' }
 type Dispatch = (aciton: Action) => void
-type State = { message: string; timestamp: number }
+type State = { message: string; timestamp: number; style?: CSSProperties }
 type CountProviderProps = { children: React.ReactNode }
 
 const ToastContext = React.createContext<
@@ -13,7 +15,11 @@ function toastReducer(state: State, action: Action): State {
   const { type } = action
   switch (action.type) {
     case 'show':
-      return { message: action.message, timestamp: Date.now() }
+      return {
+        message: action.message,
+        timestamp: Date.now(),
+        ...(action.style && { style: action.style }),
+      }
     case 'clear':
       return { message: '', timestamp: Date.now() }
     default:
@@ -40,8 +46,8 @@ function useToast() {
 
   const { state, dispatch } = context
 
-  function show(message: string) {
-    dispatch({ type: 'show', message })
+  function show(message: string, style?: CSSProperties) {
+    dispatch({ type: 'show', message, ...(style && { style }) })
   }
 
   function clear() {

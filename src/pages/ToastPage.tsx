@@ -12,6 +12,16 @@ const ToastPage = (props: RouteComponentProps) => {
     show(input)
   }
 
+  function showError(message: string) {
+    show(message, {
+      background: 'orangered',
+    })
+  }
+
+  function handleClickError() {
+    showError(`Error ${input}`)
+  }
+
   return (
     <Layout>
       <input
@@ -24,11 +34,8 @@ const ToastPage = (props: RouteComponentProps) => {
       </button>
       <br />
       <br />
-      <button
-        onClick={() => show(input.split('').reverse().join(''))}
-        type='button'
-      >
-        toast reverse
+      <button onClick={handleClickError} type='button'>
+        show error
       </button>
 
       <Toast />
